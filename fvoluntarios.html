@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoYanomami - Cadastre-se como Voluntário</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav>
+    <a href="aindex.html"><img src="zYanomami-logo-header.png" alt="logo"></a>
+    <a href="bcadastro.html">Cadastro</a>
+    <a href="clogin.html">Login</a>
+    <a href="fvoluntarios.html">Quero Ajudar</a>
+    <a href="elista.html">Voluntários</a>
+    <a href="dSobreNós.html">Sobre</a>
+  </nav>
+
+  <h1 class="page-title">Cadastre-se como Voluntário</h1>
+
+  <form class="cadastro-container" id="form-voluntario">
+    <label for="v-nome">Nome Completo</label>
+    <input type="text" id="v-nome" required />
+
+    <label for="v-email">Email</label>
+    <input type="email" id="v-email" required />
+
+    <label for="v-telefone">Telefone</label>
+    <input type="tel" id="v-telefone" placeholder="(XX) XXXXX-XXXX" />
+
+    <label for="v-interesse">Área de Interesse</label>
+    <input type="text" id="v-interesse" placeholder="ex: educação, saúde, logística" />
+
+    <button type="button" onclick="cadastrarVoluntario()">Enviar</button>
+    <p id="mensagemErroVol"></p>
+  </form>
+
+  <footer>
+    <div>
+      <p><strong>EcoYanomami</strong> - Pela preservação, cultura e direitos dos Yanomami.</p>
+      <p>📍 Protegendo a floresta, fortalecendo vozes.</p>
+      <p>📧 Contato: contato@ecoyanomami.org</p>
+      <p>© 2025 EcoYanomami - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

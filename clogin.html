@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoYanomami - Login</title>
+</head>
+
+<body>
+    <nav>
+        <a href="aindex.html"><img src="zYanomami-logo-header.png" alt="logo"></a>
+        <a href="bcadastro.html">Cadastro</a>
+        <a href="clogin.html">Login</a>
+        <a href="fvoluntarios.html">Quero Ajudar</a>
+        <a href="elista.html">Voluntários</a>
+        <a href="dSobreNós.html">Sobre</a>
+      </nav>
+
+    <h1 class="page-title">Login</h1>
+
+    <form class="login-container">
+        <label for="Usuario">Usuário</label>
+        <input type="text" id="Usuario" name="Usuario">
+
+        <label for="Senha">Senha</label>
+        <input type="password" id="Senha" name="Senha">
+
+        <button type="button" onclick="verificacaoLogin()">Entrar</button>
+        <p id="mensagemErro"></p>
+    </form>
+
+    <p class="cadastro-link"><a href="bcadastro.html">Não tem uma conta? Cadastre-se!</a></p>
+
+    <footer>
+        <div>
+            <p><strong>EcoYanomami</strong> Pela preservação, cultura e direitos dos Yanomamis.</p>
+            <p>📍 Protegendo a floresta, fortalecendo vozes.</p>
+            <p>📧 Contato: contato@ecoyanomami.org</p>
+            <p>© 2025 EcoYanomami - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+
+</html>

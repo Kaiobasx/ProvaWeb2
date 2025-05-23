@@ -1,0 +1,36 @@
+1. Como foi feita a integração com a API do ViaCEP?
+Utilizamos a função `fetch()` do JavaScript para enviar uma requisição GET ao endpoint `https://viacep.com.br/ws/${cep}/json/`. Ao receber a resposta, convertemos para JSON e preenchemos os campos de endereço, bairro, cidade e estado no formulário.
+
+2. Como a imagem aleatória foi gerada?
+Para cada card, definimos a URL `https://source.unsplash.com/160x160/?${tema}`, onde `${tema}` é uma palavra-chave (por exemplo, o nome de usuário ou "volunteer"). O Unsplash retorna uma foto aleatória relacionada ao tema.
+
+3. Como você utilizou o LocalStorage?
+Armazenamos dois conjuntos distintos de dados em chaves separadas no LocalStorage:
+- `usuarios`: array de objetos `{ nome, email, usuario, senha }` para o cadastro de usuários do site.
+- `voluntarios`: array de objetos `{ nome, email, telefone, interesse }` para cadastro de voluntários.
+Em ambas, usamos `JSON.stringify()` para salvar e `JSON.parse()` para recuperar.
+
+4. Como você organizou os cards na tela?
+Criamos um `<section>` com classes de flexbox (`.servicos .localidade`) e, via JS, iteramos sobre o array recuperado do LocalStorage. Para cada item, instanciamos um elemento `<div class="card">` (ou `<a class="card">`), inserimos a imagem, título e texto e anexamos ao container, aproveitando o CSS existente para estilo e responsividade.
+
+5. Como foi implementado o sistema de login e controle de acesso?
+No login, coletamos `usuario` e `senha` do formulário e buscamos no array `usuarios` armazenado. Se as credenciais coincidem, exibimos alerta de sucesso e redirecionamos para a página principal; senão, mostramos mensagem de erro. Não há bloqueio de páginas privadas, mas a existência do usuário sai como controle básico.
+
+6. Como foi feito o controle de e-mail duplicado?
+Ao cadastrar (tanto usuário quanto voluntário), lemos o array correspondente do LocalStorage e usamos `array.find()` ou `array.some()` para verificar se o email já existe. Se sim, mostramos erro e impedimos o cadastro.
+
+7. Implementação do redirecionamento após 5 minutos de inatividade
+Para implementar o redirecionamento automático após 5 minutos (300000 ms) de inatividade, usamos um script autoexecutável que:
+- Monitora eventos de interação ('load', 'mousemove', 'mousedown', 'click', 'scroll', 'keypress', 'touchstart').
+- A cada evento, reseta um timer de 5 minutos.
+- Quando o timer expira, remove os dados sensíveis do LocalStorage e redireciona para 'clogin.html'.
+
+8. O que você faria diferente se fosse um projeto real?
+- Implementar back‑end com banco de dados (ex.: Node.js + Express + MongoDB).
+- Gerenciar autenticação com tokens JWT e cookies seguros.
+- Hash e salt de senhas (bcrypt).
+- Validação e sanitização no servidor.
+- Controle de sessão/inatividade no servidor.
+- Melhorar UX: loaders, feedbacks assíncronos, tratamento de erros.
+- Acessibilidade (ARIA) e testes.
+- Deploy em ambiente seguro (HTTPS) e CI/CD.
